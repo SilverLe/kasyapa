@@ -1,14 +1,8 @@
 package com.example.firstboot.entity;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.Collection;
 
 /**
  * desc:
@@ -19,7 +13,7 @@ import java.util.Collection;
  * date:   2018-05-31 15:43
  */
 @Entity
-public class Reader implements UserDetails {
+public class Reader{
 
     @Id
     private Long id;
@@ -27,28 +21,16 @@ public class Reader implements UserDetails {
     private String fullname;
     private String password;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getUsername() {
         return username;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return false;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return false;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return false;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return false;
     }
 
     public void setUsername(String username) {
@@ -63,19 +45,6 @@ public class Reader implements UserDetails {
         this.fullname = fullname;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Arrays.asList(new SimpleGrantedAuthority("READER"));
-    }
-
     public String getPassword() {
         return password;
     }
@@ -84,3 +53,4 @@ public class Reader implements UserDetails {
         this.password = password;
     }
 }
+

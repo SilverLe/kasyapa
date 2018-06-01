@@ -1,15 +1,5 @@
 package com.example.firstboot.conf;
 
-import com.example.firstboot.dao.ReaderRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 /**
  * desc:
@@ -19,7 +9,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
  * packageName:com.example.firstboot.conf
  * date:   2018-05-31 15:41
  */
-@Configuration
+/*@Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -51,4 +41,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             }
         });
     }
-}
+}*/
