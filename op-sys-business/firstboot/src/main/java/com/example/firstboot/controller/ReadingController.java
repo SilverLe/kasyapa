@@ -1,7 +1,8 @@
 package com.example.firstboot.controller;
 
-import com.example.firstboot.dao.ReadingRepository;
+import com.example.firstboot.dao.ReadingRepositoryDao;
 import com.example.firstboot.entity.Book;
+import org.apache.zookeeper.ZooKeeper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,21 +21,22 @@ import java.util.List;
  * date:   2018-05-31 14:02
  */
 @Controller
-@RequestMapping("/")
+@RequestMapping("/reading")
 public class ReadingController {
 
-        private ReadingRepository readingRepository;
         @Autowired
+        private ReadingRepositoryDao readingRepositoryDao;
+        /*@Autowired
         public ReadingController(
                 ReadingRepository readingRepository) {
             this.readingRepository = readingRepository;
-        }
+        }*/
         @RequestMapping(value="/{reader}", method=RequestMethod.GET)
         public String readersBooks(
                 @PathVariable("reader") String reader,
                 Model model) {
             List<Book> readingList =
-                    readingRepository.findByReader(reader);
+                    readingRepositoryDao.findByReader(reader);
             if (readingList != null) {
                 model.addAttribute("books", readingList);
             }
@@ -44,7 +46,7 @@ public class ReadingController {
         public String addToReadingList(
                 @PathVariable("reader") String reader, Book book) {
             book.setReader(reader);
-            readingRepository.save(book);
-            return "redirect:/{reader}";
+            readingRepositoryDao.save(book);
+            return "redirect:/reading/{reader}";
         }
 }

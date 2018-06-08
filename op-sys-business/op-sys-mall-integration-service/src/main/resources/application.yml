@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: op-sys-mall-integra-service
+server:
+  port: 8770

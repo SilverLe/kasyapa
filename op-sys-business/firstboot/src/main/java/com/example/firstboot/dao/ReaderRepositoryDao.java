@@ -1,6 +1,7 @@
 package com.example.firstboot.dao;
 
 import com.example.firstboot.entity.Book;
+import com.example.firstboot.entity.Reader;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.List;
  * packageName:com.example.firstboot.dao
  * date:   2018-05-31 13:59
  */
-public interface ReadingRepository extends JpaRepository<Book,Long> {
+public interface ReaderRepositoryDao extends JpaRepository<Reader,Long> {
 
-    List<Book> findByReader(String reader);
+    Reader findByUsername(String username);
 }
